@@ -25,7 +25,6 @@ const Bottombar = () => {
 
     const product = data?.dataProduct;
 
-    // Handle jika produk tidak memiliki varian
     const variants = [
         product?.varian1,
         product?.varian2,
@@ -34,18 +33,16 @@ const Bottombar = () => {
         product?.varian5,
     ].filter((variant) => variant?.name && variant?.link);
 
-    // Menentukan varian yang dipilih berdasarkan URL
     const searchParams = new URLSearchParams(location.search);
     const selectedVarianIndex = parseInt(searchParams.get("varian")) || 0;
 
-    // Jika tidak ada varian, gunakan produk utama sebagai varian default
     const [selectedVariant, setSelectedVariant] = useState(
         variants.length > 0
             ? variants[selectedVarianIndex]
             : {
                   name: product?.name_product,
-                  link: product?.product_link,
-                  color: "#ddd", // Warna default jika tidak ada varian
+                  link: product?.varian1?.link,
+                  color: "#ddd",
               }
     );
 
@@ -55,8 +52,8 @@ const Bottombar = () => {
         } else {
             setSelectedVariant({
                 name: product?.name_product,
-                link: product?.product_link,
-                color: "#ddd", // Warna default jika tidak ada varian
+                link: product?.varian1?.link,
+                color: "#ddd",
             });
         }
     }, [data, selectedVarianIndex]);
@@ -135,36 +132,76 @@ const Bottombar = () => {
                         {selectedVariant.name || product?.name_product}
                     </h1>
                     <div>
-                        <a
-                            href={selectedVariant.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <button className="button-shop">
-                                <div className="default-btn font-montserrat">
-                                    <span>Rp.</span>
-                                    <span>{product?.price}</span>
-                                </div>
-                                <div className="hover-btn font-montserrat">
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        width="20"
-                                        height="20"
-                                        stroke="#ffffff"
-                                        strokeWidth="2"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        className="cart-icon"
+                        <div>
+                            <div>
+                                <a
+                                    href={
+                                        selectedVariant?.link ||
+                                        product?.varian1?.link ||
+                                        "#"
+                                    }
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={(e) => {
+                                        if (
+                                            !selectedVariant?.link &&
+                                            !product?.varian1?.link
+                                        ) {
+                                            e.preventDefault();
+                                            alert(
+                                                "No valid link available for this product."
+                                            );
+                                        }
+                                    }}
+                                >
+                                    <button
+                                        className={`button-shop ${
+                                            !selectedVariant?.link &&
+                                            !product?.varian1?.link
+                                                ? "opacity-50 cursor-not-allowed"
+                                                : ""
+                                        }`}
+                                        disabled={
+                                            !selectedVariant?.link &&
+                                            !product?.varian1?.link
+                                        }
                                     >
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                                    </svg>
-                                    <span>Shop Now</span>
-                                </div>
-                            </button>
-                        </a>
+                                        <div className="default-btn font-montserrat">
+                                            <span>Rp.</span>
+                                            <span>
+                                                {product?.price || "N/A"}
+                                            </span>
+                                        </div>
+                                        <div className="hover-btn font-montserrat">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                width="20"
+                                                height="20"
+                                                stroke="#ffffff"
+                                                strokeWidth="2"
+                                                fill="none"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                className="cart-icon"
+                                            >
+                                                <circle
+                                                    cx="9"
+                                                    cy="21"
+                                                    r="1"
+                                                ></circle>
+                                                <circle
+                                                    cx="20"
+                                                    cy="21"
+                                                    r="1"
+                                                ></circle>
+                                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                            </svg>
+                                            <span>Shop Now</span>
+                                        </div>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
