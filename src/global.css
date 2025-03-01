@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pinyon+Script&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+US+Trad:wght@100..400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button-home {
+    display: inline-block;
+    border-radius: 999px;
+    background-color: #c9a575;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    padding: 12px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    /* margin: 5px; */
+}
+
+.button-home span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-home span:after {
+    content: "»";
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+
+.button-home:hover span {
+    padding-right: 15px;
+}
+
+.button-home:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.button-see-more {
+    align-items: center;
+    background-color: transparent;
+    color: #292929;
+    cursor: pointer;
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    padding: 1rem;
+}
+
+.button-see-more:before {
+    background-color: #292929;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    margin-right: 10px;
+    transition: all 0.42s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 0;
+}
+
+.button-see-more:hover:before {
+    background-color: #292929;
+    width: 3rem;
+}
+
+.button-see-more-white {
+    align-items: center;
+    background-color: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    line-height: 1.5;
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+}
+
+.button-see-more-white:before {
+    background-color: #ffffff;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    transition: all 0.42s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 0;
+}
+
+.button-see-more-white:hover:before {
+    background-color: #ffffff;
+    width: 3rem;
+    margin-right: 10px;
+}
+
+.button-shop {
+    position: relative;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background-color: #c9a575;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    font-family: "Inter", sans-serif;
+}
+
+/* Gradient utama */
+.default-btn {
+    background-image: linear-gradient(90deg, #c9a575 0%, #a38565 100%);
+}
+
+.default-btn,
+.hover-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 1em 3em;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover gradient yang lebih elegan */
+.hover-btn {
+    position: absolute;
+    inset: 0;
+    font-size: 16px;
+    padding: 1em 1.7em;
+    text-align: center;
+    background: linear-gradient(63deg, #a38565 20%, #8d6b4f 100%);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transform: translateY(100%);
+}
+
+.default-btn span {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.hover-btn span {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Efek hover lebih smooth */
+button:hover .default-btn {
+    transform: translateY(-100%);
+}
+
+button:hover .hover-btn {
+    transform: translateY(0%);
+}
+/* From Uiverse.io by G4b413l */
+.jelly-triangle {
+    --uib-size: 42px;
+    --uib-speed: 1.25s;
+    --uib-color: #c9a575;
+    position: relative;
+    height: var(--uib-size);
+    width: var(--uib-size);
+    filter: url("#uib-jelly-triangle-ooze");
+}
+
+.jelly-triangle__dot,
+.jelly-triangle::before,
+.jelly-triangle::after {
+    content: "";
+    position: absolute;
+    width: 33%;
+    height: 33%;
+    background: var(--uib-color);
+    border-radius: 100%;
+}
+
+.jelly-triangle__dot {
+    top: 6%;
+    left: 30%;
+    animation: grow0 var(--uib-speed) ease infinite;
+}
+
+.jelly-triangle::before {
+    bottom: 6%;
+    right: 0;
+    animation: grow0 var(--uib-speed) ease calc(var(--uib-speed) * -0.666)
+        infinite;
+}
+
+.jelly-triangle::after {
+    bottom: 6%;
+    left: 0;
+    animation: grow0 var(--uib-speed) ease calc(var(--uib-speed) * -0.333)
+        infinite;
+}
+
+.jelly-triangle__traveler {
+    position: absolute;
+    top: 6%;
+    left: 30%;
+    width: 33%;
+    height: 33%;
+    background: var(--uib-color);
+    border-radius: 100%;
+    animation: triangulate var(--uib-speed) ease infinite;
+}
+
+.jelly-maker {
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+@keyframes triangulate {
+    0%,
+    100% {
+        transform: none;
+    }
+
+    33.333% {
+        transform: translate(120%, 175%);
+    }
+
+    66.666% {
+        transform: translate(-95%, 175%);
+    }
+}
+
+@keyframes grow0 {
+    0%,
+    100% {
+        transform: scale(1.5);
+    }
+
+    20%,
+    70% {
+        transform: none;
+    }
+}
