@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://www.ssyourmakeup.id/sitemap.xml
