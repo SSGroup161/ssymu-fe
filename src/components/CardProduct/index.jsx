@@ -6,6 +6,7 @@ const CardProduct = ({ data }) => {
 
     const handleReadMore = () => {
         navigate(`/catalog/product/${data?.id_title}`);
+        window.scrollTo(0, 0);
     };
 
     const truncateText = (text, maxLength = 70) => {

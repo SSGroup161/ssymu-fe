@@ -90,6 +90,10 @@ const ProductDetail = () => {
     const searchParams = new URLSearchParams(location.search);
     const selectedVarianIndex = parseInt(searchParams.get("varian")) || 0;
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const getProductDetails = async (idProduct) => {
         try {
             const response = await axios.get(
@@ -105,10 +109,29 @@ const ProductDetail = () => {
         }
     };
 
+    const getAllProduct = async () => {
+        try {
+            const response = await axios.get(`${url}/api/v1/product/`);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    };
+
     const { data, isLoading, isFetching, isError, error } = useQuery({
         queryKey: ["ProductDetail", id],
         queryFn: () => getProductDetails(id),
         enabled: !!id,
+    });
+
+    const {
+        data: dataProduct,
+        isLoading: loadingProduct,
+        isFetching: fetchingProduct,
+    } = useQuery({
+        queryKey: ["AllProduct"],
+        queryFn: () => getAllProduct(),
+        enabled: !!url,
     });
 
     const title = `${
@@ -216,10 +239,6 @@ const ProductDetail = () => {
     data ? (resultUsp = parseUSP(data?.dataProduct?.usp)) : (resultUsp = null);
 
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             setScrollPosition(scrollY);
@@ -321,6 +340,14 @@ const ProductDetail = () => {
 
     const rotateY = Math.min(scrollPosition * 0.2, 5);
     const rotateX = Math.max(scrollPosition * -0.05, -5);
+
+    const recommendedProducts = dataProduct?.dataProduct.filter(
+        (product) => product.id_title !== id
+    );
+
+    const dataTopProduct = recommendedProducts
+        ? recommendedProducts.slice(0, 3)
+        : [];
 
     return (
         <>
@@ -922,9 +949,13 @@ const ProductDetail = () => {
                                 <hr className="h-0.5 w-3/5 bg-black" />
                             </div>
                             <div className="py-10 grid grid-cols-2 md:grid-cols-3">
-                                <CardProduct />
-                                <CardProduct />
-                                <CardProduct />
+                                {dataTopProduct &&
+                                    dataTopProduct.map((product, index) => (
+                                        <CardProduct
+                                            key={index}
+                                            data={product}
+                                        />
+                                    ))}
                             </div>
                         </div>
                     </section>
