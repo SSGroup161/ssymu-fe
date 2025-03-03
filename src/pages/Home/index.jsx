@@ -141,7 +141,7 @@ const Home = () => {
             <Navbar />
             <Sidebar />
             <section className="pt-36 2xl:pt-56 px-10 md:px-12 h-screen bg-white">
-                <div className="w-full max-w-screen-2xl m-auto marker:flex items-start justify-center md:pt-8 flex-col-reverse md:flex-row">
+                <div className="w-full max-w-screen-lg xl:max-w-screen-xl  m-auto marker:flex items-start justify-center md:pt-8 flex-col-reverse md:flex-row">
                     <div className="md:flex-1 w-full flex items-start justify-start md:justify-center ">
                         <div className="flex flex-col gap-4 mt-10 md:mt-28 items-center">
                             <h1
@@ -189,7 +189,7 @@ const Home = () => {
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-40 lg:mt-0 bg-white">
                 <div
-                    className="max-w-screen-xl m-auto relative"
+                    className="max-w-screen-lg xl:max-w-screen-xl m-auto relative"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
@@ -267,9 +267,9 @@ const Home = () => {
                             className="w-28 h-28"
                         />
                         <div className="flex flex-col items-center justify-center font-montserrat gap-2">
-                            <h1 className="font-semibold text-xs md:text-sm text-center">
+                            <h2 className="font-semibold text-xs md:text-sm text-center">
                                 Luxe Aura Baked Blush <br /> - Aura Peach
-                            </h1>
+                            </h2>
                             <p className="text-center text-[10px] md:text-xs">
                                 A radiant baked blush that delivers a natural,
                                 luminous glow to your cheeks.
@@ -296,9 +296,9 @@ const Home = () => {
                                     className="w-8 md:w-10"
                                 />
                             </div>
-                            <h1 className="font-montserrat text-sm md:text-base">
+                            <h2 className="font-montserrat text-sm md:text-base">
                                 100% Natural
-                            </h1>
+                            </h2>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-3">
                             <div className="bg-primary p-4 rounded-full">
@@ -309,9 +309,9 @@ const Home = () => {
                                     className="w-8 md:w-10"
                                 />
                             </div>
-                            <h1 className="font-montserrat text-sm md:text-base">
+                            <h2 className="font-montserrat text-sm md:text-base">
                                 Local Expert
-                            </h1>
+                            </h2>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-3">
                             <div className="bg-primary p-4 rounded-full">
@@ -322,9 +322,9 @@ const Home = () => {
                                     className="w-8 md:w-10"
                                 />
                             </div>
-                            <h1 className="font-montserrat text-sm md:text-base">
+                            <h2 className="font-montserrat text-sm md:text-base">
                                 Alcohol Free
-                            </h1>
+                            </h2>
                         </div>
                         <div className="flex flex-col items-center justify-center gap-3">
                             <div className="bg-primary p-4 rounded-full">
@@ -335,24 +335,24 @@ const Home = () => {
                                     className="w-8 md:w-10"
                                 />
                             </div>
-                            <h1 className="font-montserrat text-sm md:text-base">
+                            <h2 className="font-montserrat text-sm md:text-base">
                                 BPOM Certified
-                            </h1>
+                            </h2>
                         </div>
                     </div>
                 </div>
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl::px-24 pb-20 bg-white">
                 <div
-                    className="max-w-screen-xl m-auto"
+                    className="max-w-screen-lg xl:max-w-screen-xl m-auto"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="w-full flex items-center justify-between">
                         <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                            <h1 className="text-xl md:text-4xl font-medium">
+                            <h2 className="text-xl md:text-4xl font-medium">
                                 Look By Category
-                            </h1>
+                            </h2>
                             <p className="text-sm md:text-base">
                                 Find makeup products for every part of your
                                 face.
@@ -363,9 +363,9 @@ const Home = () => {
                     <div className="grid grid-cols-6 md:grid-cols-7 mt-8 md:gap-4 gap-2">
                         <div className="col-span-6 md:col-span-4 row-span-4 mb-4 md:mb-8 relative flex items-end justify-end overflow-hidden rounded-xl group cursor-pointer">
                             <div className="w-full bg-gradient-to-b from-transparent to-[#222222] py-6 absolute z-30 flex flex-col font-montserrat px-4 md:px-8 xl:px-10 gap-2">
-                                <h1 className="font-semibold text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl">
+                                <h2 className="font-semibold text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl">
                                     Flawless Face Essentials
-                                </h1>
+                                </h2>
                                 <p className="text-white hidden lg:block">
                                     From dewy to matte, explore our face
                                     essentials to bring out your best look.
@@ -388,9 +388,9 @@ const Home = () => {
 
                         <div className="col-span-6 md:col-span-3 relative flex items-end justify-end overflow-hidden rounded-xl group cursor-pointer">
                             <div className="w-full bg-gradient-to-b from-transparent to-[#222222] py-6 absolute flex flex-col font-montserrat px-4 lg:px-8 gap-2 z-30">
-                                <h1 className="font-semibold text-white md:text-xl lg:text-2xl xl:text-3xl">
+                                <h2 className="font-semibold text-white md:text-xl lg:text-2xl xl:text-3xl">
                                     For Eyes That Stand Out
-                                </h1>
+                                </h2>
                                 <p className="text-white hidden lg:block">
                                     From natural to bold, find eyeshadows,
                                     liners, and mascaras for every look
@@ -413,9 +413,9 @@ const Home = () => {
 
                         <div className="col-span-6 md:col-span-3 relative flex items-end justify-end rounded-xl group cursor-pointer overflow-hidden">
                             <div className="w-full bg-gradient-to-b from-transparent to-[#222222] py-6 absolute flex flex-col font-montserrat px-4 lg:px-8 gap-2 z-30">
-                                <h1 className="font-semibold text-white md:text-xl lg:text-2xl xl:text-3xl">
+                                <h2 className="font-semibold text-white md:text-xl lg:text-2xl xl:text-3xl">
                                     Lips That Speak Volumes
-                                </h1>
+                                </h2>
                                 <p className="text-white hidden lg:block">
                                     From long-lasting mattes to high-shine
                                     glosses – find your signature color
@@ -440,15 +440,15 @@ const Home = () => {
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-white">
                 <div
-                    className="max-w-screen-xl m-auto flex flex-col items-center"
+                    className="max-w-screen-lg xl:max-w-screen-xl m-auto flex flex-col items-center"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="w-full flex items-center justify-between">
                         <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                            <h1 className="text-xl md:text-4xl font-medium">
+                            <h2 className="text-xl md:text-4xl font-medium">
                                 Discover Our Makeup Catalog
-                            </h1>
+                            </h2>
                             <p className="text-sm md:text-base">
                                 Explore beauty essentials tailored to enhance
                                 your unique look.
@@ -474,15 +474,15 @@ const Home = () => {
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-[F5F5F5] bg-white">
                 <div
-                    className="max-w-screen-xl m-auto flex flex-col items-center"
+                    className="max-w-screen-lg xl:max-w-screen-xl m-auto flex flex-col items-center"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="w-full flex items-center justify-between">
                         <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                            <h1 className="text-xl md:text-4xl font-medium">
+                            <h2 className="text-xl md:text-4xl font-medium">
                                 Trusted by Experts
-                            </h1>
+                            </h2>
                             <p className="text-sm md:text-base max-w-[30rem]">
                                 Beauty experts love SS Your Makeup for its
                                 premium quality, easy use, and flawless results.
@@ -506,14 +506,14 @@ const Home = () => {
                         </div>
                         <div className="flex-1 flex items-center justify-center mt-12">
                             <div className="flex flex-col items-start justify-center xl:mx-20 gap-4">
-                                <h1 className="font-montserrat text-xl md:text-4xl italic">
+                                <h2 className="font-montserrat text-xl md:text-3xl italic">
                                     “Di aku udah ada product terbaru dari ss,
                                     ini cushion aku tuh paling jarang banget
                                     bisa cocok pake cushion, tapi kemaren aku
                                     cobain pake cushion ini dan warna nya itu
                                     cocok banget sama kulit aku. Kemasan nya
                                     mewah cakep banget.”
-                                </h1>
+                                </h2>
                                 <a
                                     href="https://www.instagram.com/reel/DDqs9tSSDG-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
                                     className="underline"
@@ -538,9 +538,9 @@ const Home = () => {
                                                 href="https://www.instagram.com/ivan_gunawan/"
                                                 target="blank"
                                             >
-                                                <h1 className="font-medium text-lg">
+                                                <h2 className="font-medium text-lg">
                                                     Ivan Gunawan
-                                                </h1>
+                                                </h2>
                                             </a>
                                             <img
                                                 src="/assetVerified.png"
@@ -583,9 +583,9 @@ const Home = () => {
                                         target="blank"
                                     >
                                         <div className="flex gap-2">
-                                            <h1 className="font-medium">
+                                            <h2 className="font-medium">
                                                 Awin Zulkifli
-                                            </h1>
+                                            </h2>
                                         </div>
                                     </a>
                                     <h2>Entrepreneur</h2>
@@ -618,9 +618,9 @@ const Home = () => {
                                             href="https://www.instagram.com/nadydy_/"
                                             target="blank"
                                         >
-                                            <h1 className="font-medium cursor-pointer">
+                                            <h2 className="font-medium cursor-pointer">
                                                 Nadya Amanada
-                                            </h1>
+                                            </h2>
                                         </a>
                                     </div>
                                     <h2>MUA</h2>
@@ -632,15 +632,15 @@ const Home = () => {
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-white">
                 <div
-                    className="max-w-screen-xl m-auto flex flex-col items-center"
+                    className="max-w-screen-lg xl:max-w-screen-xl m-auto flex flex-col items-center"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="w-full flex items-center justify-between">
                         <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                            <h1 className="text-xl md:text-4xl font-medium">
+                            <h2 className="text-xl md:text-4xl font-medium">
                                 Beauty & Makeup Tips from the Experts
-                            </h1>
+                            </h2>
                             <p className="text-sm md:text-base">
                                 Stay up to date with the latest beauty trends,
                                 tutorials, and expert tips.

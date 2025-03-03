@@ -219,7 +219,7 @@ const Blogs = () => {
                     </section>
                     <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-white">
                         <div
-                            className="max-w-screen-xl m-auto flex flex-col items-center"
+                            className="max-w-screen-lg md:max-w-screen-xl overflow-hidden m-auto flex flex-col items-center"
                             data-aos="fade-up"
                             data-aos-duration="3000"
                         >

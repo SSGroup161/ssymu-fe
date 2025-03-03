@@ -91,7 +91,7 @@ const About = () => {
             <Navbar />
             <Sidebar />
             <section className="w-full h-screen flex items-center justify-center px-10 lg:px-36 bg-white">
-                <div className="flex flex-col items-center justify-center max-w-screen-xl m-auto pt-16 md:pt-32">
+                <div className="flex flex-col items-center justify-center max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto pt-16 md:pt-32 ">
                     <h1
                         className="text-xl md:text-5xl font-montserrat font-semibold text-center hidden md:block"
                         style={{ lineHeight: "1.2" }}
@@ -126,14 +126,14 @@ const About = () => {
                         src="/assetAbout.png"
                         alt="SS Your Make Up - About"
                         loading="lazy"
-                        className="w-full max-w-screen-xl mt-4"
+                        className="w-full max-w-screen-lg xl:max-w-screen-xl overflow-hidden mt-4"
                         data-aos="fade-up"
                         data-aos-duration="3000"
                     />
                 </div>
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-16 lg:mt-28 bg-white">
-                <div className="max-w-screen-xl m-auto relative">
+                <div className="max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto relative">
                     <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-10">
                         <div
                             className="flex-1 relative flex items-end justify-end"
@@ -161,11 +161,11 @@ const About = () => {
                             data-aos-duration="3000"
                         >
                             <div className="font-montserrat flex flex-col gap-6">
-                                <h1>Our Story: Beauty Inspired by You</h1>
-                                <h1 className="text-3xl md:text-4xl font-medium">
+                                <h2>Our Story: Beauty Inspired by You</h2>
+                                <h2 className="text-3xl md:text-4xl font-medium">
                                     Empowering confidence, one product at a
                                     time.
-                                </h1>
+                                </h2>
                                 <p className="text-[#030202] font-light">
                                     At SS Your Makeup, we believe that true
                                     beauty begins with confidence. Our
@@ -195,7 +195,7 @@ const About = () => {
                 </div>
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-16 lg:mt-28 bg-white">
-                <div className="max-w-screen-xl m-auto relative">
+                <div className="max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto relative">
                     <div className="w-full flex flex-col-reverse lg:flex-row gap-10 items-center justify-between">
                         <div
                             className="flex-1"
@@ -203,11 +203,11 @@ const About = () => {
                             data-aos-duration="3000"
                         >
                             <div className="font-montserrat flex flex-col gap-6">
-                                <h1>Discover the art of natural beauty.</h1>
-                                <h1 className="text-3xl md:text-4xl font-medium">
+                                <h2>Discover the art of natural beauty.</h2>
+                                <h2 className="text-3xl md:text-4xl font-medium">
                                     Enhancing your beauty with high-quality
                                     essentials.
-                                </h1>
+                                </h2>
                                 <ul className="flex flex-col items-center gap-4">
                                     <li className="flex items-center text-[#030202] font-light gap-4">
                                         <div className="p-2 bg-primary rounded-full">
@@ -287,14 +287,14 @@ const About = () => {
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-16 md:mt-28 bg-white">
                 <div
-                    className="max-w-screen-xl m-auto relative"
+                    className="max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto relative"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="font-montserrat flex flex-col gap-4">
-                        <h1 className="text-4xl font-medium">
+                        <h2 className="text-4xl font-medium">
                             Your Beauty Destination
-                        </h1>
+                        </h2>
                         <h2>
                             Visit us and unlock the secrets to radiant beauty
                             with our premium makeup collection
@@ -312,12 +312,12 @@ const About = () => {
                         ></iframe>
                     </div>
                     <div className="mt-8 font-montserrat">
-                        <h1 className="font-medium text-xl">Our Location:</h1>
-                        <h1 className="">
+                        <h2 className="font-medium text-xl">Our Location:</h2>
+                        <h2 className="">
                             2nd Floor Jl. Sultan Iskandar Muda, Gandaria, Kby.
                             Lama District, South Jakarta City, Special Capital
                             Region of Jakarta 12240
-                        </h1>
+                        </h2>
                     </div>
                     <div className="mt-4 flex flex-col md:flex-row gap-4">
                         <a href="mailto:info@ssyourmakeup.id" target="blank">

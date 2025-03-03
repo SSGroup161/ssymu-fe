@@ -185,7 +185,7 @@ const ProductCategory = () => {
             <Navbar />
             <Sidebar />
             <section className="w-full flex items-center justify-center">
-                <div className="w-full h-full max-w-screen-xl grid grid-cols-1 lg:grid-cols-2 font-montserrat py-32 md:py-44 px-10 xl:ps-20 2xl:ps-0 items-center justify-center gap-20">
+                <div className="w-full h-full max-w-screen-lg md:max-w-screen-xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 font-montserrat py-32 md:py-44 px-10 xl:ps-20 2xl:ps-0 items-center justify-center gap-20">
                     <div className="flex flex-col gap-4 relative order-2 lg:order-1">
                         <h2 className="font-medium text-xl md:text-2xl">
                             {categoryInfo.type}
@@ -252,17 +252,17 @@ const ProductCategory = () => {
                     </div>
                 </div>
             </section>
-            <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-white">
+            <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-slate-200">
                 <div
-                    className="max-w-screen-xl m-auto flex flex-col items-center"
+                    className="max-w-screen-lg md:max-w-screen-xl overflow-hidden m-auto flex flex-col items-center"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="w-full flex items-center justify-between">
                         <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                            <h1 className="text-xl md:text-4xl font-medium">
+                            <h2 className="text-xl md:text-4xl font-medium">
                                 Discover Our Makeup Catalog
-                            </h1>
+                            </h2>
                             <p className="text-sm md:text-base">
                                 Explore beauty essentials tailored to enhance
                                 your unique look.

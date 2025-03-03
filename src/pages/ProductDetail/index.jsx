@@ -385,7 +385,7 @@ const ProductDetail = () => {
             ) : (
                 <div>
                     <section className="w-full flex items-center justify-center relative h-screen overflow-hidden">
-                        <div className="w-full max-w-screen-2xl flex items-center justify-center">
+                        <div className="w-full max-w-screen-lg md:max-w-screen-xl overflow-hidden flex items-center justify-center">
                             <h1 className="font-playwrite text-[#DFC9AC] text-xl md:text-5xl xl:text-7xl 2xl:text-8xl -rotate-6 font-light">
                                 {data?.dataProduct?.name_product}
                             </h1>
@@ -401,9 +401,9 @@ const ProductDetail = () => {
                                 data-aos-duration="3000"
                             >
                                 <div className="w-full flex items-center justify-between">
-                                    <h1 className="text-xl md:text-4xl font-medium font-montserrat">
+                                    <h2 className="text-xl md:text-4xl font-medium font-montserrat">
                                         Description
-                                    </h1>
+                                    </h2>
                                     <hr className="h-0.5 w-3/5 bg-black" />
                                 </div>
                                 <p className="text-xs md:text-base font-montserrat">
@@ -596,9 +596,9 @@ const ProductDetail = () => {
                                     data-aos-duration="3000"
                                 >
                                     <div className="w-full flex items-center justify-between">
-                                        <h1 className="text-xl md:text-4xl font-medium font-montserrat">
+                                        <h2 className="text-xl md:text-4xl font-medium font-montserrat">
                                             How to Use?
-                                        </h1>
+                                        </h2>
                                         <hr className="h-0.5 w-3/5 bg-black" />
                                     </div>
                                     <p className="text-sm md:text-base font-montserrat">
@@ -615,9 +615,9 @@ const ProductDetail = () => {
                                                 </span>
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                                <h1 className="text-sm md:text-base font-medium">
+                                                <h2 className="text-sm md:text-base font-medium">
                                                     {resultHtu?.Htu_title1}
-                                                </h1>
+                                                </h2>
                                                 <p className="text-xs md:text-base">
                                                     {resultHtu?.Htu_desc1}
                                                 </p>
@@ -630,9 +630,9 @@ const ProductDetail = () => {
                                                 </span>
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                                <h1 className="text-sm md:text-base font-medium">
+                                                <h2 className="text-sm md:text-base font-medium">
                                                     {resultHtu?.Htu_title2}
-                                                </h1>
+                                                </h2>
                                                 <p className="text-xs md:text-base">
                                                     {resultHtu?.Htu_desc2}
                                                 </p>
@@ -645,9 +645,9 @@ const ProductDetail = () => {
                                                 </span>
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                                <h1 className="text-sm md:text-base font-medium">
+                                                <h2 className="text-sm md:text-base font-medium">
                                                     {resultHtu?.Htu_title3}
-                                                </h1>
+                                                </h2>
                                                 <p className="text-xs md:text-base">
                                                     {resultHtu?.Htu_desc3}
                                                 </p>
@@ -773,10 +773,10 @@ const ProductDetail = () => {
                                     data-aos-duration="3000"
                                 >
                                     <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                                        <h1 className="text-xl md:text-4xl font-medium">
+                                        <h2 className="text-xl md:text-4xl font-medium">
                                             Product USP (Unique Selling
                                             Proposition)
-                                        </h1>
+                                        </h2>
                                         <p className="text-sm md:text-base">
                                             Here’s why{" "}
                                             <span className="text-primary">
@@ -908,9 +908,9 @@ const ProductDetail = () => {
                             >
                                 <div className="w-full flex items-center justify-between">
                                     <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                                        <h1 className="text-xl md:text-4xl font-medium">
+                                        <h2 className="text-xl md:text-4xl font-medium">
                                             Trusted by Experts
-                                        </h1>
+                                        </h2>
                                         <p className="text-sm md:text-base max-w-[30rem]">
                                             Beauty experts love SS Your Makeup
                                             for its premium quality, easy use,
@@ -938,9 +938,9 @@ const ProductDetail = () => {
                         >
                             <div className="w-full flex items-center justify-between">
                                 <div className="font-montserrat flex flex-col items-start justify-center gap-2">
-                                    <h1 className="text-xl md:text-4xl font-medium">
+                                    <h2 className="text-xl md:text-4xl font-medium">
                                         Top Recomendation
-                                    </h1>
+                                    </h2>
                                     <p className="text-sm md:text-base">
                                         Explore beauty essentials tailored to
                                         enhance your unique look

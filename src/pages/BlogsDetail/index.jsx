@@ -96,10 +96,8 @@ const BlogsDetail = () => {
             tag.setAttribute("content", content);
         };
 
-        // Meta tags for SEO
         updateMetaTag("description", description);
 
-        // Canonical URL
         let linkCanonical = document.querySelector('link[rel="canonical"]');
         if (!linkCanonical) {
             linkCanonical = document.createElement("link");
@@ -108,20 +106,17 @@ const BlogsDetail = () => {
         }
         linkCanonical.setAttribute("href", canonicalUrl);
 
-        // Open Graph Meta Tags (Facebook, WhatsApp)
         updateMetaProperty("og:title", title);
         updateMetaProperty("og:description", description);
         updateMetaProperty("og:url", canonicalUrl);
         updateMetaProperty("og:image", image);
         updateMetaProperty("og:type", "article");
 
-        // Twitter Card Meta Tags
         updateMetaProperty("twitter:card", "summary_large_image");
         updateMetaProperty("twitter:title", title);
         updateMetaProperty("twitter:description", description);
         updateMetaProperty("twitter:image", image);
 
-        // Structured Data JSON-LD for better SEO
         const jsonLd = {
             "@context": "https://schema.org",
             "@type": "Article",
@@ -191,7 +186,7 @@ const BlogsDetail = () => {
             <Toaster richColors />
             <article className="pt-20 md:pt-36 2xl:pt-44 px-10 md:px-12 bg-white">
                 <header
-                    className="w-full max-w-screen-xl m-auto flex items-center justify-center md:pt-8 flex-col pt-20 pb-10 md:pb-8 md:py-20 gap-8"
+                    className="w-full max-w-screen-lg md:max-w-screen-xl overflow-hidden m-auto flex items-center justify-center md:pt-8 flex-col pt-20 pb-10 md:pb-8 md:py-20 gap-8"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
@@ -200,7 +195,7 @@ const BlogsDetail = () => {
                     </h1>
                     <div className="w-full flex items-start justify-start">
                         <div className="flex items-center justify-center gap-2 font-montserrat">
-                            <h1>{data && data?.creator}</h1>
+                            <h2>{data && data?.creator}</h2>
                             <div className="bg-black w-2 h-2 rounded-full"></div>
                             <time dateTime={dateNew}>{dateNew}</time>
                         </div>
@@ -223,17 +218,17 @@ const BlogsDetail = () => {
             </article>
             <article className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-white">
                 <div
-                    className="max-w-screen-xl m-auto flex flex-col items-center"
+                    className="max-w-screen-lg md:max-w-screen-xl overflow-hidden m-auto flex flex-col items-center"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >
                     <div className="w-full flex flex-col-reverse gap-10 lg:gap-0 lg:grid lg:grid-cols-3">
                         <div className="lg:col-span-1 flex justify-start font-montserrat lg:sticky lg:top-40 lg:h-40">
                             <div className="">
-                                <h1 className="text-2xl font-semibold">
+                                <h2 className="text-2xl font-semibold">
                                     Was this article helpful?
-                                </h1>
-                                <h1>Share it with the world!</h1>
+                                </h2>
+                                <h2>Share it with the world!</h2>
                                 <div className="flex mt-4 gap-2">
                                     <button
                                         className="group cursor-pointer p-3 border-2 border-gray-200 rounded-full flex items-center justify-center"
