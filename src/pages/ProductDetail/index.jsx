@@ -385,7 +385,7 @@ const ProductDetail = () => {
             ) : (
                 <div>
                     <section className="w-full flex items-center justify-center relative h-screen overflow-hidden">
-                        <div className="w-full max-w-screen-lg md:max-w-screen-xl overflow-hidden flex items-center justify-center">
+                        <div className="w-full max-w-screen-lg md:max-w-screen-xl flex items-center justify-center">
                             <h1 className="font-playwrite text-[#DFC9AC] text-xl md:text-5xl xl:text-7xl 2xl:text-8xl -rotate-6 font-light">
                                 {data?.dataProduct?.name_product}
                             </h1>
@@ -673,6 +673,10 @@ const ProductDetail = () => {
                                     }
                                     alt="SSYMU - AsetProduct"
                                     auto-rotate
+                                    poster={
+                                        selectedVariant?.poster ||
+                                        data?.dataProduct?.poster
+                                    }
                                     rotation-per-second="30deg"
                                     shadow-intensity="1"
                                     interaction-prompt="none"
@@ -685,6 +689,8 @@ const ProductDetail = () => {
                                         transform: `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
                                         transition: "transform 0.5s ease-out",
                                         zIndex: 10,
+                                        "--poster-width": "70%",
+                                        "--poster-height": "70%",
                                     }}
                                 ></model-viewer>
                             </div>
@@ -699,6 +705,10 @@ const ProductDetail = () => {
                                     }
                                     alt="SSYMU - AsetProduct"
                                     auto-rotate
+                                    poster={
+                                        selectedVariant?.poster ||
+                                        data?.dataProduct?.poster
+                                    }
                                     rotation-per-second="30deg"
                                     shadow-intensity="1"
                                     interaction-prompt="none"
@@ -711,6 +721,8 @@ const ProductDetail = () => {
                                         transform: `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
                                         transition: "transform 0.5s ease-out",
                                         zIndex: 10,
+                                        "--poster-width": "70%",
+                                        "--poster-height": "70%",
                                     }}
                                 ></model-viewer>
                             </div>
@@ -725,6 +737,10 @@ const ProductDetail = () => {
                                     }
                                     alt="SSYMU - AsetProduct"
                                     auto-rotate
+                                    poster={
+                                        selectedVariant?.poster ||
+                                        data?.dataProduct?.poster
+                                    }
                                     rotation-per-second="30deg"
                                     shadow-intensity="1"
                                     interaction-prompt="none"
@@ -737,6 +753,8 @@ const ProductDetail = () => {
                                         transform: `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
                                         transition: "transform 0.5s ease-out",
                                         zIndex: 10,
+                                        "--poster-width": "70%",
+                                        "--poster-height": "70%",
                                     }}
                                 ></model-viewer>
                             </div>
@@ -751,6 +769,10 @@ const ProductDetail = () => {
                                     }
                                     alt="SSYMU - AsetProduct"
                                     auto-rotate
+                                    poster={
+                                        selectedVariant?.poster ||
+                                        data?.dataProduct?.poster
+                                    }
                                     rotation-per-second="30deg"
                                     shadow-intensity="1"
                                     interaction-prompt="none"
@@ -763,6 +785,8 @@ const ProductDetail = () => {
                                         transform: `translate(-50%, -50%) translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`,
                                         transition: "transform 0.5s ease-out",
                                         zIndex: 10,
+                                        "--poster-width": "70%",
+                                        "--poster-height": "70%",
                                     }}
                                 ></model-viewer>
                             </div>

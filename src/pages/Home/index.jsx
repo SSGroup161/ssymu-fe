@@ -259,12 +259,12 @@ const Home = () => {
                             />
                         </svg>
                     </div>
-                    <div className="absolute bg-white -top-32 lg:top-4 -right-6 md:right-6 shadow-md w-64 md:w-80 p-4 flex rounded-xl items-center justify-between">
+                    <div className="absolute bg-white -top-36 lg:top-4 -right-6 md:right-6 shadow-md w-64 md:w-80 p-4 flex rounded-xl items-center justify-between">
                         <img
                             src="/Luxe-Aura-Baked-Blush-Aura-Peach-SSYMU.png"
                             alt="SS Your Make Up - Luxe Aura Baked Blush Aura Peach"
                             loading="lazy"
-                            className="w-28 h-28"
+                            className="w-20 h-20 md:w-28 md:h-28"
                         />
                         <div className="flex flex-col items-center justify-center font-montserrat gap-2">
                             <h2 className="font-semibold text-xs md:text-sm text-center">

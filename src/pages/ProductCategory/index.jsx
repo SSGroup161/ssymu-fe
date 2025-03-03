@@ -252,7 +252,7 @@ const ProductCategory = () => {
                     </div>
                 </div>
             </section>
-            <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 bg-slate-200">
+            <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20">
                 <div
                     className="max-w-screen-lg md:max-w-screen-xl overflow-hidden m-auto flex flex-col items-center"
                     data-aos="fade-up"
