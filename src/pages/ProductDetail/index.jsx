@@ -249,13 +249,13 @@ const ProductDetail = () => {
 
             if (window.innerWidth < 768) {
                 // Mobile
-                stopThreshold = 2400;
+                stopThreshold = 2200;
                 elementId = "stop here mobile";
                 if (scrollY < 250) {
                     newTranslateX = 0;
                 } else if (scrollY >= 260 && scrollY < 1100) {
                     newTranslateX = -110;
-                } else if (scrollY >= 1100 && scrollY < 2400) {
+                } else if (scrollY >= 1100 && scrollY < 2200) {
                     newTranslateX = 110;
                 } else {
                     newTranslateX = 0;
@@ -386,7 +386,7 @@ const ProductDetail = () => {
                 <div>
                     <section className="w-full flex items-center justify-center relative h-screen overflow-hidden">
                         <div className="w-full max-w-screen-lg md:max-w-screen-xl flex items-center justify-center">
-                            <h1 className="font-playwrite text-[#DFC9AC] text-xl md:text-5xl xl:text-7xl 2xl:text-8xl -rotate-6 font-light">
+                            <h1 className="font-playwrite text-[#DFC9AC] text-lg md:text-4xl xl:text-6xl 2xl:text-7xl -rotate-6 font-light">
                                 {data?.dataProduct?.name_product}
                             </h1>
                         </div>

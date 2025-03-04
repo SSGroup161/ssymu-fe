@@ -42,7 +42,7 @@ const Bottombar = () => {
             ? variants[selectedVarianIndex]
             : {
                   name: product?.name_product,
-                  link: product?.link_ecommerce_varian1,
+                  link: product?.varian1?.link,
                   color: "#ddd",
               }
     );
@@ -53,7 +53,7 @@ const Bottombar = () => {
         } else {
             setSelectedVariant({
                 name: product?.name_product,
-                link: product?.link_ecommerce_varian1,
+                link: product?.varian1?.link,
                 color: "#ddd",
             });
         }
@@ -137,7 +137,7 @@ const Bottombar = () => {
                     <a
                         href={
                             selectedVariant?.link ||
-                            product?.link_ecommerce_varian1 ||
+                            product?.varian1?.link ||
                             "#"
                         }
                         target="_blank"
@@ -145,7 +145,7 @@ const Bottombar = () => {
                         onClick={(e) => {
                             if (
                                 !selectedVariant?.link &&
-                                !product?.link_ecommerce_varian1
+                                !product?.varian1?.link
                             ) {
                                 e.preventDefault();
                                 alert(
@@ -157,13 +157,13 @@ const Bottombar = () => {
                         <button
                             className={`button-shop ${
                                 !selectedVariant?.link &&
-                                !product?.link_ecommerce_varian1
+                                !product?.varian1?.link
                                     ? "opacity-50 cursor-not-allowed"
                                     : ""
                             }`}
                             disabled={
                                 !selectedVariant?.link &&
-                                !product?.link_ecommerce_varian1
+                                !product?.varian1?.link
                             }
                         >
                             <div className="default-btn font-montserrat">

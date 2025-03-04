@@ -77,10 +77,6 @@ const ProductCategory = () => {
         enabled: !!category,
     });
 
-    if (dataProduct) {
-        console.log(dataProduct);
-    }
-
     const categoryConfig = {
         eye: {
             title: "Eye - SS Your Makeup",
