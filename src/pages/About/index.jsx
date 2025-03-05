@@ -91,7 +91,7 @@ const About = () => {
             <Navbar />
             <Sidebar />
             <section className="w-full h-screen flex items-center justify-center px-10 lg:px-36 bg-white">
-                <div className="flex flex-col items-center justify-center max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto pt-16 md:pt-32 ">
+                <div className="flex flex-col items-center justify-center max-w-screen-lg xl:max-w-screen-xl m-auto pt-16 md:pt-32 ">
                     <h1
                         className="text-xl md:text-5xl font-montserrat font-semibold text-center hidden md:block"
                         style={{ lineHeight: "1.2" }}
@@ -126,14 +126,14 @@ const About = () => {
                         src="/assetAbout.png"
                         alt="SS Your Make Up - About"
                         loading="lazy"
-                        className="w-full max-w-screen-lg xl:max-w-screen-xl overflow-hidden mt-4"
+                        className="w-full max-w-screen-lg xl:max-w-screen-xl mt-4"
                         data-aos="fade-up"
                         data-aos-duration="3000"
                     />
                 </div>
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-16 lg:mt-28 bg-white">
-                <div className="max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto relative">
+                <div className="max-w-screen-lg xl:max-w-screen-xl m-auto relative">
                     <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-10">
                         <div
                             className="flex-1 relative flex items-end justify-end"
@@ -141,14 +141,14 @@ const About = () => {
                             data-aos-duration="3000"
                         >
                             <img
-                                src="/assetAbout1.png"
+                                src="/SSYMU-About1.png"
                                 alt="SSYMU - Image About"
                                 loading="lazy"
                                 className="absolute top-0 left-0 w-96"
                             />
                             <div className="z-10 pr-10 lg:pr-24">
                                 <img
-                                    src="/assetAbout2.png"
+                                    src="/SSYMU-About2.png"
                                     alt="SSYMU - Image About"
                                     loading="lazy"
                                     className="mt-20 lg:mt-32 w-96 md:w-72 lg:w-96"
@@ -195,7 +195,7 @@ const About = () => {
                 </div>
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-16 lg:mt-28 bg-white">
-                <div className="max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto relative">
+                <div className="max-w-screen-lg xl:max-w-screen-xl m-auto relative">
                     <div className="w-full flex flex-col-reverse lg:flex-row gap-10 items-center justify-between">
                         <div
                             className="flex-1"
@@ -276,7 +276,7 @@ const About = () => {
                             data-aos-duration="3000"
                         >
                             <img
-                                src="/assetAbout3.png"
+                                src="/SSYMU-Aura-Baked-Blush-About.png"
                                 alt="SSYMU - Image About"
                                 loading="lazy"
                                 className="w-96"
@@ -287,7 +287,7 @@ const About = () => {
             </section>
             <section className="w-full px-10 md:px-12 lg:px-16 xl:px-24 pb-20 mt-16 md:mt-28 bg-white">
                 <div
-                    className="max-w-screen-lg xl:max-w-screen-xl overflow-hidden m-auto relative"
+                    className="max-w-screen-lg xl:max-w-screen-xl m-auto relative"
                     data-aos="fade-up"
                     data-aos-duration="3000"
                 >

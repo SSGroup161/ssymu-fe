@@ -14,19 +14,19 @@ const Catalog = () => {
         {
             title: "Eye",
             button: "See more",
-            src: "/assetCatalog1.png",
+            src: "/SSYMU-Eyeshadow-Pallete.png",
             desc: "Define and blend for mesmerizing eyes.",
         },
         {
             title: "Face",
             button: "See more",
-            src: "/assetCatalog2.png",
+            src: "/SSYMU-Aura-Baked-Blush.png",
             desc: "Flawless glow that lasts all day.",
         },
         {
             title: "Lips",
             button: "See more",
-            src: "/assetCatalog3.png",
+            src: "/SSYMU-Tinted-Lip-Balm.png",
             desc: "Bold and smooth for irresistible lips.",
         },
     ];
@@ -161,12 +161,47 @@ const Catalog = () => {
                         </div>
                         <hr className="h-0.5 w-3/5 bg-black" />
                     </div>
-                    <div className="py-10 grid grid-cols-2 md:grid-cols-3">
-                        {dataProduct?.dataProduct &&
-                            dataProduct?.dataProduct.map((product, index) => (
-                                <CardProduct key={index} data={product} />
-                            ))}
-                    </div>
+                    {loadingProduct || fetchingProduct ? (
+                        <section className="w-full h-screen flex flex-col items-center justify-center">
+                            <div className="jelly-triangle">
+                                <div className="jelly-triangle__dot"></div>
+                                <div className="jelly-triangle__traveler"></div>
+                            </div>
+                            <svg width="0" height="0" className="jelly-maker">
+                                <defs>
+                                    <filter id="uib-jelly-triangle-ooze">
+                                        <feGaussianBlur
+                                            in="SourceGraphic"
+                                            stdDeviation="7.3"
+                                            result="blur"
+                                        ></feGaussianBlur>
+                                        <feColorMatrix
+                                            in="blur"
+                                            mode="matrix"
+                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                                            result="ooze"
+                                        ></feColorMatrix>
+                                        <feBlend
+                                            in="SourceGraphic"
+                                            in2="ooze"
+                                        ></feBlend>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </section>
+                    ) : (
+                        <div className="py-10 grid grid-cols-2 md:grid-cols-3">
+                            {dataProduct?.dataProduct &&
+                                dataProduct?.dataProduct.map(
+                                    (product, index) => (
+                                        <CardProduct
+                                            key={index}
+                                            data={product}
+                                        />
+                                    )
+                                )}
+                        </div>
+                    )}
                 </div>
             </section>
             <Footer />

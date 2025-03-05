@@ -226,7 +226,7 @@ const Home = () => {
                                 />
                             </svg>
                             <img
-                                src="/assetHome5.png"
+                                src="/SSYMU-Model-Luxe-Aura-Baked-Blush.png"
                                 alt="SS Your Make Up"
                                 loading="lazy"
                                 className="w-[40rem]"
@@ -378,7 +378,7 @@ const Home = () => {
                                 </button>
                             </div>
                             <img
-                                src="/assetHome2.png"
+                                src="/SSYMU-Cushion.png"
                                 alt="SS Your Make Up-Model"
                                 loading="lazy"
                                 className="w-full h-full object-cover rounded-md group-hover:scale-110 transition-all ease-in-out duration-300"
@@ -403,7 +403,7 @@ const Home = () => {
                                 </button>
                             </div>
                             <img
-                                src="/assetHome3.png"
+                                src="/SSYMU-Model-Eye.png"
                                 alt="SS Your Make Up-Detail"
                                 loading="lazy"
                                 className="w-full h-full object-cover rounded-md group-hover:scale-110 transition-all ease-in-out duration-300"
@@ -428,7 +428,7 @@ const Home = () => {
                                 </button>
                             </div>
                             <img
-                                src="/assetHome4.png"
+                                src="/SSYMU-Model-Lips.png"
                                 alt="SS Your Make Up-Detail"
                                 loading="lazy"
                                 className="w-full h-full object-cover rounded-md group-hover:scale-110 transition-all ease-in-out duration-300"
@@ -456,12 +456,42 @@ const Home = () => {
                         </div>
                         <hr className="h-0.5 w-3/5 bg-black" />
                     </div>
-                    <div className="py-10 grid grid-cols-2 md:grid-cols-3">
-                        {dataTopProduct &&
-                            dataTopProduct.map((product, index) => (
-                                <CardProduct key={index} data={product} />
-                            ))}
-                    </div>
+                    {loadingProduct || fetchingProduct ? (
+                        <section className="w-full h-screen flex flex-col items-center justify-center">
+                            <div className="jelly-triangle">
+                                <div className="jelly-triangle__dot"></div>
+                                <div className="jelly-triangle__traveler"></div>
+                            </div>
+                            <svg width="0" height="0" className="jelly-maker">
+                                <defs>
+                                    <filter id="uib-jelly-triangle-ooze">
+                                        <feGaussianBlur
+                                            in="SourceGraphic"
+                                            stdDeviation="7.3"
+                                            result="blur"
+                                        ></feGaussianBlur>
+                                        <feColorMatrix
+                                            in="blur"
+                                            mode="matrix"
+                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                                            result="ooze"
+                                        ></feColorMatrix>
+                                        <feBlend
+                                            in="SourceGraphic"
+                                            in2="ooze"
+                                        ></feBlend>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </section>
+                    ) : (
+                        <div className="py-10 grid grid-cols-2 md:grid-cols-3">
+                            {dataTopProduct &&
+                                dataTopProduct.map((product, index) => (
+                                    <CardProduct key={index} data={product} />
+                                ))}
+                        </div>
+                    )}
                     <div className="w-full flex items-center justify-center">
                         <button
                             className="button-see-more font-montserrat"
@@ -526,7 +556,7 @@ const Home = () => {
                                         target="blank"
                                     >
                                         <img
-                                            src="/assetHome10.png"
+                                            src="/SSYMU-Ivan-Gunawan.png"
                                             alt="SSYMU - Ivan Gunawan"
                                             loading="lazy"
                                             className="rounded-full w-16 cursor-pointer"
@@ -648,12 +678,42 @@ const Home = () => {
                         </div>
                         <hr className="h-0.5 w-3/5 bg-black" />
                     </div>
-                    <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {dataTopArticle &&
-                            dataTopArticle.map((article, index) => (
-                                <CardArticle key={index} data={article} />
-                            ))}
-                    </div>
+                    {isLoading || isFetching ? (
+                        <section className="w-full h-screen flex flex-col items-center justify-center">
+                            <div className="jelly-triangle">
+                                <div className="jelly-triangle__dot"></div>
+                                <div className="jelly-triangle__traveler"></div>
+                            </div>
+                            <svg width="0" height="0" className="jelly-maker">
+                                <defs>
+                                    <filter id="uib-jelly-triangle-ooze">
+                                        <feGaussianBlur
+                                            in="SourceGraphic"
+                                            stdDeviation="7.3"
+                                            result="blur"
+                                        ></feGaussianBlur>
+                                        <feColorMatrix
+                                            in="blur"
+                                            mode="matrix"
+                                            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                                            result="ooze"
+                                        ></feColorMatrix>
+                                        <feBlend
+                                            in="SourceGraphic"
+                                            in2="ooze"
+                                        ></feBlend>
+                                    </filter>
+                                </defs>
+                            </svg>
+                        </section>
+                    ) : (
+                        <div className="py-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {dataTopArticle &&
+                                dataTopArticle.map((article, index) => (
+                                    <CardArticle key={index} data={article} />
+                                ))}
+                        </div>
+                    )}
                     <div className="w-full flex items-center justify-center">
                         <button
                             className="button-see-more font-montserrat"
