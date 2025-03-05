@@ -7,6 +7,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { Toaster, toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 
 let url = import.meta.env.VITE_REACT_APP_API_KEY;
 let feUrl = import.meta.env.VITE_REACT_APP_FE_SITE;
@@ -96,86 +97,6 @@ const BlogsDetail = () => {
     const image = data?.link_img || "";
     const canonicalUrl = `https://www.ssyourmakeup.id/blogs/${id}`;
 
-    useEffect(() => {
-        document.title = `${title} | SS Your Makeup`;
-
-        const updateMetaTag = (name, content) => {
-            let tag = document.querySelector(`meta[name="${name}"]`);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute("name", name);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        const updateMetaProperty = (property, content) => {
-            let tag = document.querySelector(`meta[property="${property}"]`);
-            if (!tag) {
-                tag = document.createElement("meta");
-                tag.setAttribute("property", property);
-                document.head.appendChild(tag);
-            }
-            tag.setAttribute("content", content);
-        };
-
-        updateMetaTag("description", description);
-
-        let linkCanonical = document.querySelector('link[rel="canonical"]');
-        if (!linkCanonical) {
-            linkCanonical = document.createElement("link");
-            linkCanonical.setAttribute("rel", "canonical");
-            document.head.appendChild(linkCanonical);
-        }
-        linkCanonical.setAttribute("href", canonicalUrl);
-
-        updateMetaProperty("og:title", title);
-        updateMetaProperty("og:description", description);
-        updateMetaProperty("og:url", canonicalUrl);
-        updateMetaProperty("og:image", image);
-        updateMetaProperty("og:type", "article");
-
-        updateMetaProperty("twitter:card", "summary_large_image");
-        updateMetaProperty("twitter:title", title);
-        updateMetaProperty("twitter:description", description);
-        updateMetaProperty("twitter:image", image);
-
-        const jsonLd = {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: title,
-            author: {
-                "@type": "Person",
-                name: data?.creator || "SS Your Makeup Team",
-            },
-            publisher: {
-                "@type": "Organization",
-                name: "SS Your Makeup",
-                logo: {
-                    "@type": "ImageObject",
-                    url: "https://www.ssyourmakeup.id/logo.png",
-                },
-            },
-            datePublished: data?.date || "",
-            dateModified: data?.updated_at || "",
-            mainEntityOfPage: {
-                "@type": "WebPage",
-                "@id": canonicalUrl,
-            },
-            image: image,
-            description: description,
-        };
-
-        let scriptTag = document.createElement("script");
-        scriptTag.type = "application/ld+json";
-        scriptTag.innerHTML = JSON.stringify(jsonLd);
-        document.head.appendChild(scriptTag);
-
-        return () => {
-            scriptTag.remove();
-        };
-    }, [title, description, image, canonicalUrl, data]);
-
     const shareToFacebook = () => {
         const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
         window.open(facebookUrl, "_blank");
@@ -204,6 +125,75 @@ const BlogsDetail = () => {
 
     return (
         <>
+            <Helmet>
+                {/* Dynamic Title & Description */}
+                <title>{`${title} - SS Your Makeup`}</title>
+                <meta name="description" content={description} />
+                <meta
+                    name="keywords"
+                    content="SS Your Makeup, beauty blog, makeup trends, beauty tips, skincare, cosmetics, article, flawless beauty"
+                />
+                <meta
+                    name="author"
+                    content={data?.creator || "SS Your Makeup Team"}
+                />
+                <link rel="canonical" href={canonicalUrl} />
+
+                {/* Open Graph / Facebook Meta Tags */}
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta property="og:image" content={image} />
+                <meta property="og:site_name" content="SS Your Makeup" />
+                <meta property="og:locale" content="en_US" />
+
+                {/* WhatsApp Specific Meta Tags */}
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:type" content="image/jpeg" />
+
+                {/* Twitter Card Meta Tags */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={description} />
+                <meta name="twitter:image" content={image} />
+                <meta name="twitter:site" content="@SSYourMakeup" />
+
+                {/* Robots Meta Tags (For Search Engine Crawling) */}
+                <meta name="robots" content="index, follow" />
+                <meta name="googlebot" content="index, follow" />
+
+                {/* Schema.org Structured Data for SEO */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        headline: title,
+                        author: {
+                            "@type": "Person",
+                            name: data?.creator || "SS Your Makeup Team",
+                        },
+                        publisher: {
+                            "@type": "Organization",
+                            name: "SS Your Makeup",
+                            logo: {
+                                "@type": "ImageObject",
+                                url: "https://www.ssyourmakeup.id/LogoSSYMU.png",
+                            },
+                        },
+                        datePublished: data?.date || "",
+                        dateModified: data?.updated_at || "",
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": canonicalUrl,
+                        },
+                        image: image,
+                        description: description,
+                    })}
+                </script>
+            </Helmet>
+
             <Navbar />
             <Sidebar />
             <Toaster richColors />

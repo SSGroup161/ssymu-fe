@@ -6,6 +6,7 @@ import Sidebar from "../../components/Sidebar";
 import CardProduct from "../../components/CardProduct";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 let url = import.meta.env.VITE_REACT_APP_API_KEY;
 
@@ -106,78 +107,105 @@ const ProductCategory = () => {
         category || ""
     }`;
 
-    useEffect(() => {
-        // Set page title
-        document.title = title;
-
-        // Meta description
-        let metaDescription = document.querySelector(
-            'meta[name="description"]'
-        );
-        if (!metaDescription) {
-            metaDescription = document.createElement("meta");
-            metaDescription.setAttribute("name", "description");
-            document.head.appendChild(metaDescription);
-        }
-        metaDescription.setAttribute("content", description);
-
-        // Canonical link
-        let linkCanonical = document.querySelector('link[rel="canonical"]');
-        if (!linkCanonical) {
-            linkCanonical = document.createElement("link");
-            linkCanonical.setAttribute("rel", "canonical");
-            document.head.appendChild(linkCanonical);
-        }
-        linkCanonical.setAttribute("href", canonicalUrl);
-
-        // Open Graph tags
-        let ogTitle = document.querySelector('meta[property="og:title"]');
-        if (!ogTitle) {
-            ogTitle = document.createElement("meta");
-            ogTitle.setAttribute("property", "og:title");
-            document.head.appendChild(ogTitle);
-        }
-        ogTitle.setAttribute("content", title);
-
-        let ogDescription = document.querySelector(
-            'meta[property="og:description"]'
-        );
-        if (!ogDescription) {
-            ogDescription = document.createElement("meta");
-            ogDescription.setAttribute("property", "og:description");
-            document.head.appendChild(ogDescription);
-        }
-        ogDescription.setAttribute("content", description);
-
-        let ogUrl = document.querySelector('meta[property="og:url"]');
-        if (!ogUrl) {
-            ogUrl = document.createElement("meta");
-            ogUrl.setAttribute("property", "og:url");
-            document.head.appendChild(ogUrl);
-        }
-        ogUrl.setAttribute("content", canonicalUrl);
-
-        let ogType = document.querySelector('meta[property="og:type"]');
-        if (!ogType) {
-            ogType = document.createElement("meta");
-            ogType.setAttribute("property", "og:type");
-            document.head.appendChild(ogType);
-        }
-        ogType.setAttribute("content", "website");
-
-        return () => {
-            // Cleanup meta tags
-            metaDescription?.remove();
-            linkCanonical?.remove();
-            ogTitle?.remove();
-            ogDescription?.remove();
-            ogUrl?.remove();
-            ogType?.remove();
-        };
-    }, [title, description, canonicalUrl]);
-
     return (
         <>
+            <Helmet>
+                {/* Dynamic Title & Description */}
+                <title>{title}</title>
+                <meta name="description" content={description} />
+                <meta
+                    name="keywords"
+                    content="SS Your Makeup, beauty products, makeup, eye makeup, lip makeup, face makeup, luxury cosmetics, flawless beauty, premium makeup"
+                />
+                <meta name="author" content="SS Your Makeup" />
+                <link rel="canonical" href={canonicalUrl} />
+
+                {/* Open Graph / Facebook Meta Tags (For Link Previews in Facebook & WhatsApp) */}
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={title} />
+                <meta property="og:description" content={description} />
+                <meta property="og:url" content={canonicalUrl} />
+                <meta
+                    property="og:image"
+                    content={`https://www.ssyourmakeup.id${
+                        categoryInfo?.image1 || "/default-og-image.jpg"
+                    }`}
+                />
+                <meta property="og:site_name" content="SS Your Makeup" />
+                <meta property="og:locale" content="en_US" />
+
+                {/* WhatsApp Specific Meta Tags */}
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:type" content="image/jpeg" />
+
+                {/* Twitter Card Meta Tags (For Twitter Previews) */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content={title} />
+                <meta name="twitter:description" content={description} />
+                <meta
+                    name="twitter:image"
+                    content={`https://www.ssyourmakeup.id${
+                        categoryInfo?.image1 || "/default-twitter-image.jpg"
+                    }`}
+                />
+                <meta name="twitter:site" content="@SSYourMakeup" />
+
+                {/* Meta Tags for WhatsApp & Messenger (FB) */}
+                <meta
+                    property="og:updated_time"
+                    content="2024-03-05T12:00:00+00:00"
+                />
+                <meta
+                    property="og:image:alt"
+                    content={`SS Your Makeup - ${
+                        categoryInfo?.type || "Beauty Collection"
+                    }`}
+                />
+                <meta
+                    property="og:image:secure_url"
+                    content={`https://www.ssyourmakeup.id${
+                        categoryInfo?.image1 || "/default-og-image.jpg"
+                    }`}
+                />
+
+                {/* Robots Meta Tags (For Search Engine Crawling) */}
+                <meta name="robots" content="index, follow" />
+                <meta name="googlebot" content="index, follow" />
+
+                {/* Schema.org Structured Data for SEO */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CollectionPage",
+                        name: title,
+                        url: canonicalUrl,
+                        description: description,
+                        publisher: {
+                            "@type": "Organization",
+                            name: "SS Your Makeup",
+                            logo: {
+                                "@type": "ImageObject",
+                                url: "https://www.ssyourmakeup.id/LogoSSYMU.png",
+                            },
+                        },
+                        image: `https://www.ssyourmakeup.id${
+                            categoryInfo?.image1 || "/default-og-image.jpg"
+                        }`,
+                        mainEntityOfPage: {
+                            "@type": "WebPage",
+                            "@id": canonicalUrl,
+                        },
+                        sameAs: [
+                            "https://www.facebook.com/ssyourmakeup",
+                            "https://www.instagram.com/ssyourmakeup/",
+                            "https://twitter.com/ssyourmakeup",
+                            "https://wa.me/6285121106283",
+                        ],
+                    })}
+                </script>
+            </Helmet>
+
             <Navbar />
             <Sidebar />
             <section className="w-full flex items-center justify-center">

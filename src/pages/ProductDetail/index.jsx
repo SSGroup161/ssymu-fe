@@ -8,6 +8,7 @@ import { Carousel } from "../../components/Carousel";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 let url = import.meta.env.VITE_REACT_APP_API_KEY;
 
@@ -142,73 +143,6 @@ const ProductDetail = () => {
     const canonicalUrl = `https://www.ssyourmakeup.id/catalog/product/${
         data?.dataProduct && data?.dataProduct?.id_title
     }`;
-
-    useEffect(() => {
-        document.title = title;
-
-        let metaDescription = document.querySelector(
-            'meta[name="description"]'
-        );
-        if (!metaDescription) {
-            metaDescription = document.createElement("meta");
-            metaDescription.setAttribute("name", "description");
-            document.head.appendChild(metaDescription);
-        }
-        metaDescription.setAttribute("content", description);
-
-        // Canonical link
-        let linkCanonical = document.querySelector('link[rel="canonical"]');
-        if (!linkCanonical) {
-            linkCanonical = document.createElement("link");
-            linkCanonical.setAttribute("rel", "canonical");
-            document.head.appendChild(linkCanonical);
-        }
-        linkCanonical.setAttribute("href", canonicalUrl);
-
-        // Open Graph tags
-        let ogTitle = document.querySelector('meta[property="og:title"]');
-        if (!ogTitle) {
-            ogTitle = document.createElement("meta");
-            ogTitle.setAttribute("property", "og:title");
-            document.head.appendChild(ogTitle);
-        }
-        ogTitle.setAttribute("content", title);
-
-        let ogDescription = document.querySelector(
-            'meta[property="og:description"]'
-        );
-        if (!ogDescription) {
-            ogDescription = document.createElement("meta");
-            ogDescription.setAttribute("property", "og:description");
-            document.head.appendChild(ogDescription);
-        }
-        ogDescription.setAttribute("content", description);
-
-        let ogUrl = document.querySelector('meta[property="og:url"]');
-        if (!ogUrl) {
-            ogUrl = document.createElement("meta");
-            ogUrl.setAttribute("property", "og:url");
-            document.head.appendChild(ogUrl);
-        }
-        ogUrl.setAttribute("content", canonicalUrl);
-
-        let ogType = document.querySelector('meta[property="og:type"]');
-        if (!ogType) {
-            ogType = document.createElement("meta");
-            ogType.setAttribute("property", "og:type");
-            document.head.appendChild(ogType);
-        }
-        ogType.setAttribute("content", "website");
-
-        return () => {
-            metaDescription?.remove();
-            linkCanonical?.remove();
-            ogTitle?.remove();
-            ogDescription?.remove();
-            ogUrl?.remove();
-            ogType?.remove();
-        };
-    }, [title, description, canonicalUrl]);
 
     const product = data?.dataProduct;
     const variants = [
@@ -351,6 +285,151 @@ const ProductDetail = () => {
 
     return (
         <>
+            <Helmet>
+                {/* Dynamic Title & Description */}
+                <title>
+                    {data?.dataProduct?.name_product
+                        ? `${data.dataProduct.name_product} - SS Your Makeup©`
+                        : "SS Your Makeup©"}
+                </title>
+                <meta
+                    name="description"
+                    content={
+                        data?.dataProduct?.name_description ||
+                        "Discover luxurious and high-quality makeup products from SS Your Makeup. Enhance your beauty with our exclusive collections."
+                    }
+                />
+                <meta
+                    name="keywords"
+                    content="SS Your Makeup, beauty products, makeup, premium cosmetics, luxury beauty, flawless beauty, best makeup, high-quality cosmetics"
+                />
+                <meta name="author" content="SS Your Makeup" />
+                <link
+                    rel="canonical"
+                    href={`https://www.ssyourmakeup.id/catalog/product/${
+                        data?.dataProduct?.id_title || ""
+                    }`}
+                />
+
+                {/* Open Graph / Facebook Meta Tags (For Link Previews in Facebook & WhatsApp) */}
+                <meta property="og:type" content="product" />
+                <meta
+                    property="og:title"
+                    content={
+                        data?.dataProduct?.name_product ||
+                        "SS Your Makeup Product"
+                    }
+                />
+                <meta
+                    property="og:description"
+                    content={
+                        data?.dataProduct?.name_description ||
+                        "Discover luxurious and high-quality makeup products from SS Your Makeup."
+                    }
+                />
+                <meta
+                    property="og:url"
+                    content={`https://www.ssyourmakeup.id/catalog/product/${
+                        data?.dataProduct?.id_title || ""
+                    }`}
+                />
+                <meta
+                    property="og:image"
+                    content={`${
+                        selectedVariant?.poster || data?.dataProduct?.poster
+                    }`}
+                />
+                <meta property="og:site_name" content="SS Your Makeup" />
+                <meta property="og:locale" content="en_US" />
+
+                {/* WhatsApp Specific Meta Tags */}
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:type" content="image/jpeg" />
+
+                {/* Twitter Card Meta Tags (For Twitter Previews) */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content={
+                        data?.dataProduct?.name_product ||
+                        "SS Your Makeup Product"
+                    }
+                />
+                <meta
+                    name="twitter:description"
+                    content={
+                        data?.dataProduct?.name_description ||
+                        "Discover luxurious and high-quality makeup products from SS Your Makeup."
+                    }
+                />
+                <meta
+                    name="twitter:image"
+                    content={`${
+                        selectedVariant?.poster || data?.dataProduct?.poster
+                    }`}
+                />
+                <meta name="twitter:site" content="@SSYourMakeup" />
+
+                {/* Meta Tags for WhatsApp & Messenger (FB) */}
+                <meta
+                    property="og:updated_time"
+                    content="2024-03-05T12:00:00+00:00"
+                />
+                <meta
+                    property="og:image:alt"
+                    content={
+                        data?.dataProduct?.name_product ||
+                        "SS Your Makeup Product"
+                    }
+                />
+                <meta
+                    property="og:image:secure_url"
+                    content={`${
+                        selectedVariant?.poster || data?.dataProduct?.poster
+                    }`}
+                />
+
+                {/* Robots Meta Tags (For Search Engine Crawling) */}
+                <meta name="robots" content="index, follow" />
+                <meta name="googlebot" content="index, follow" />
+
+                {/* Schema.org Structured Data for SEO */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Product",
+                        name:
+                            data?.dataProduct?.name_product ||
+                            "SS Your Makeup Product",
+                        image: `${
+                            selectedVariant?.poster || data?.dataProduct?.poster
+                        }`,
+                        description:
+                            data?.dataProduct?.name_description ||
+                            "Discover luxurious and high-quality makeup products from SS Your Makeup.",
+                        brand: {
+                            "@type": "Brand",
+                            name: "SS Your Makeup",
+                        },
+                        sku: data?.dataProduct?.htu || "",
+                        offers: {
+                            "@type": "Offer",
+                            url: `https://www.ssyourmakeup.id/catalog/product/${
+                                data?.dataProduct?.id_title || ""
+                            }`,
+                            priceCurrency: "IDR",
+                            price: data?.dataProduct?.price || "0",
+                            availability: "https://schema.org/InStock",
+                            seller: {
+                                "@type": "Organization",
+                                name: "SS Your Makeup",
+                            },
+                        },
+                    })}
+                </script>
+            </Helmet>
+
             <Navbar />
             <Sidebar />
             <Bottombar />
