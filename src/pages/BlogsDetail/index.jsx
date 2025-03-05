@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import Sidebar from "../../components/Sidebar";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { Toaster, toast } from "sonner";
 
@@ -13,6 +13,7 @@ let feUrl = import.meta.env.VITE_REACT_APP_FE_SITE;
 
 const BlogsDetail = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -33,9 +34,14 @@ const BlogsDetail = () => {
             const response = await axios.get(
                 `${url}/api/v1/article/${idArticle}`
             );
+
+            if (!response.data.status === 404) {
+                throw new Error("Artikel tidak ditemukan");
+                // console.error("status", response.data.status);
+            }
             return response.data.data;
         } catch (error) {
-            console.error("Error fetching articles:", error);
+            // console.error("Error fetching article:", error);
             throw error;
         }
     };
@@ -45,6 +51,12 @@ const BlogsDetail = () => {
         queryFn: () => getArticleById(id),
         enabled: !!id,
     });
+
+    useEffect(() => {
+        if (isError) {
+            navigate("*");
+        }
+    }, [isError, navigate, error, data]);
 
     let dateNew = "";
     let enhancedHTML = "";
