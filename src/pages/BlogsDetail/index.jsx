@@ -35,13 +35,21 @@ const BlogsDetail = () => {
                 `${url}/api/v1/article/${idArticle}`
             );
 
-            if (!response.data.status === 404) {
+            // Cek apakah response memiliki status 404
+            if (response.status === 404 || !response.data.data) {
                 throw new Error("Artikel tidak ditemukan");
-                // console.error("status", response.data.status);
             }
+
             return response.data.data;
         } catch (error) {
-            // console.error("Error fetching article:", error);
+            if (axios.isAxiosError(error)) {
+                console.error("Axios Error:", error.message);
+                if (error.response && error.response.status === 404) {
+                    throw new Error("Artikel tidak ditemukan");
+                }
+            } else {
+                console.error("Unexpected Error:", error);
+            }
             throw error;
         }
     };
@@ -53,7 +61,7 @@ const BlogsDetail = () => {
     });
 
     useEffect(() => {
-        if (isError) {
+        if (isError && error.message === "Artikel tidak ditemukan") {
             navigate("*");
         }
     }, [isError, navigate, error, data]);
