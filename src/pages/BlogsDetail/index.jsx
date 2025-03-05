@@ -35,7 +35,6 @@ const BlogsDetail = () => {
                 `${url}/api/v1/article/${idArticle}`
             );
 
-            // Cek apakah response memiliki status 404
             if (response.status === 404 || !response.data.data) {
                 throw new Error("Artikel tidak ditemukan");
             }
@@ -43,12 +42,16 @@ const BlogsDetail = () => {
             return response.data.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                console.error("Axios Error:", error.message);
+                if (import.meta.env.VITE_ENV !== "production") {
+                    console.error("Axios Error:", error.message);
+                }
                 if (error.response && error.response.status === 404) {
                     throw new Error("Artikel tidak ditemukan");
                 }
             } else {
-                console.error("Unexpected Error:", error);
+                if (import.meta.env.VITE_ENV !== "production") {
+                    console.error("Unexpected Error:", error);
+                }
             }
             throw error;
         }
