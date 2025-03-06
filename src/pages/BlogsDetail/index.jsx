@@ -127,49 +127,104 @@ const BlogsDetail = () => {
         <>
             <Helmet>
                 {/* Dynamic Title & Description */}
-                <title>{`${title} - SS Your Makeup`}</title>
-                <meta name="description" content={description} />
+                <title>
+                    {data?.title
+                        ? `${data.title} - SS Your Makeup`
+                        : "SS Your Makeup Blog"}
+                </title>
                 <meta
-                    name="keywords"
-                    content="SS Your Makeup, beauty blog, makeup trends, beauty tips, skincare, cosmetics, article, flawless beauty"
+                    name="description"
+                    content={
+                        data?.description ||
+                        "Read the latest beauty tips, trends, and news on SS Your Makeup blog."
+                    }
                 />
                 <meta
                     name="author"
                     content={data?.creator || "SS Your Makeup Team"}
                 />
-                <link rel="canonical" href={canonicalUrl} />
+                <link
+                    rel="canonical"
+                    href={`https://www.ssyourmakeup.id/blogs/${id}`}
+                />
 
-                {/* Open Graph / Facebook Meta Tags */}
+                {/* Open Graph / Facebook Meta Tags (For WhatsApp & Facebook Preview) */}
                 <meta property="og:type" content="article" />
-                <meta property="og:title" content={title} />
-                <meta property="og:description" content={description} />
-                <meta property="og:url" content={canonicalUrl} />
-                <meta property="og:image" content={image} />
+                <meta
+                    property="og:title"
+                    content={data?.title || "SS Your Makeup Blog"}
+                />
+                <meta
+                    property="og:description"
+                    content={
+                        data?.description ||
+                        "Read the latest beauty tips, trends, and news on SS Your Makeup blog."
+                    }
+                />
+                <meta
+                    property="og:url"
+                    content={`https://www.ssyourmakeup.id/blogs/${id}`}
+                />
+                <meta
+                    property="og:image"
+                    content={
+                        data?.link_img
+                            ? data.link_img
+                            : "https://www.ssyourmakeup.id/default-blog-image.jpg"
+                    }
+                />
                 <meta property="og:site_name" content="SS Your Makeup" />
                 <meta property="og:locale" content="en_US" />
 
-                {/* WhatsApp Specific Meta Tags */}
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta property="og:image:type" content="image/jpeg" />
-
-                {/* Twitter Card Meta Tags */}
+                {/* Twitter Meta Tags */}
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content={title} />
-                <meta name="twitter:description" content={description} />
-                <meta name="twitter:image" content={image} />
-                <meta name="twitter:site" content="@SSYourMakeup" />
+                <meta
+                    name="twitter:title"
+                    content={data?.title || "SS Your Makeup Blog"}
+                />
+                <meta
+                    name="twitter:description"
+                    content={
+                        data?.description ||
+                        "Read the latest beauty tips, trends, and news on SS Your Makeup blog."
+                    }
+                />
+                <meta
+                    name="twitter:image"
+                    content={
+                        data?.link_img
+                            ? data.link_img
+                            : "https://www.ssyourmakeup.id/default-blog-image.jpg"
+                    }
+                />
 
-                {/* Robots Meta Tags (For Search Engine Crawling) */}
-                <meta name="robots" content="index, follow" />
-                <meta name="googlebot" content="index, follow" />
+                {/* Meta Tags for WhatsApp & Messenger (FB) */}
+                <meta
+                    property="og:image:secure_url"
+                    content={
+                        data?.link_img
+                            ? data.link_img
+                            : "https://www.ssyourmakeup.id/default-blog-image.jpg"
+                    }
+                />
+                <meta
+                    property="og:image:alt"
+                    content={data?.title || "SS Your Makeup Blog"}
+                />
+                <meta
+                    property="og:updated_time"
+                    content={data?.updated_at || "2024-03-05T12:00:00+00:00"}
+                />
 
                 {/* Schema.org Structured Data for SEO */}
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Article",
-                        headline: title,
+                        "@type": "BlogPosting",
+                        headline: data?.title || "SS Your Makeup Blog",
+                        image:
+                            data?.link_img ||
+                            "https://www.ssyourmakeup.id/default-blog-image.jpg",
                         author: {
                             "@type": "Person",
                             name: data?.creator || "SS Your Makeup Team",
@@ -179,17 +234,18 @@ const BlogsDetail = () => {
                             name: "SS Your Makeup",
                             logo: {
                                 "@type": "ImageObject",
-                                url: "https://www.ssyourmakeup.id/LogoSSYMU.png",
+                                url: "https://www.ssyourmakeup.id/logo.png",
                             },
                         },
                         datePublished: data?.date || "",
                         dateModified: data?.updated_at || "",
                         mainEntityOfPage: {
                             "@type": "WebPage",
-                            "@id": canonicalUrl,
+                            "@id": `https://www.ssyourmakeup.id/blogs/${id}`,
                         },
-                        image: image,
-                        description: description,
+                        description:
+                            data?.description ||
+                            "Read the latest beauty tips, trends, and news on SS Your Makeup blog.",
                     })}
                 </script>
             </Helmet>

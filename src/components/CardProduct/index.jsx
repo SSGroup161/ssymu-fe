@@ -33,7 +33,7 @@ const CardProduct = ({ data }) => {
                     shadow-intensity="1"
                     interaction-prompt="none"
                 ></model-viewer> */}
-
+                a
                 <div className="w-full flex flex-col items-center justify-center font-montserrat gap-2 md:gap-4">
                     <h1 className="font-semibold text-sm md:text-base text-center">
                         {data?.name_product}
