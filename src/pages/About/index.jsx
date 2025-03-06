@@ -107,8 +107,8 @@ const About = () => {
 
             <Navbar />
             <Sidebar />
-            <section className="w-full h-screen flex items-center justify-center px-10 lg:px-36 bg-white">
-                <div className="flex flex-col items-center justify-center max-w-screen-lg xl:max-w-screen-xl m-auto pt-16 md:pt-32 ">
+            <section className="w-full h-screen flex items-center justify-center px-10 lg:px-36 relative">
+                <div className="flex flex-col items-center justify-center m-auto pt-16 md:pt-32 w-full h-full">
                     <h1
                         className="text-xl md:text-5xl font-montserrat font-semibold text-center hidden md:block"
                         style={{ lineHeight: "1.2" }}
@@ -139,13 +139,17 @@ const About = () => {
                         products, <br />
                         offering a perfect blend of elegance and comfort.
                     </h2>
-                    <img
-                        src="/assetAbout.png"
+                </div>
+                <div className="absolute w-full -z-20 top-0">
+                    <div className="bg-primary/30 w-full h-full absolute"></div>
+                    <video
+                        src="/SSYMU-Video.mp4"
                         alt="SS Your Make Up - About"
-                        loading="lazy"
-                        className="w-full max-w-screen-lg xl:max-w-screen-xl mt-4"
-                        data-aos="fade-up"
-                        data-aos-duration="3000"
+                        className="w-full"
+                        loop
+                        muted
+                        autoPlay
+                        playsInline
                     />
                 </div>
             </section>
