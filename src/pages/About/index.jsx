@@ -140,12 +140,12 @@ const About = () => {
                         offering a perfect blend of elegance and comfort.
                     </h2>
                 </div>
-                <div className="absolute w-full -z-20 top-0">
-                    <div className="bg-primary/30 w-full h-full absolute"></div>
+                <div className="absolute w-full h-full -z-20 top-0">
+                    <div className="bg-primary/40 w-full h-full absolute"></div>
                     <video
                         src="/SSYMU-Video.mp4"
                         alt="SS Your Make Up - About"
-                        className="w-full"
+                        className="w-full h-full object-cover"
                         loop
                         muted
                         autoPlay
